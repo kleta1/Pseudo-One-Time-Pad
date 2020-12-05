@@ -12,7 +12,7 @@
 # ![image.png](attachment:image.png)
 
 # ### PRG
-# For this function, I found an easy random generator that allowed me to set the length of the output. This function was not my own writing and is sourced below. I used the random generator rand_key(p) to input the base key and it outputed the pseudo key. 
+# For this project, I found a fucntion that utilizes the strong crypto random generator that allowed me to set the length of the output. This function was not my own writing and is sourced below. I used the secrets.py library to generate cryptographically strong random numbers within the rand_key(p) function to input the base key and output the pseudo key. 
 
 # In[1]:
 
@@ -21,7 +21,7 @@
 # Python program for random 
 # binary string generation 
   
-import random 
+import secrets 
   
 # Function to create the 
 # random binary string 
@@ -38,8 +38,9 @@ def rand_key(p):
         # randint function to generate 
         # 0, 1 randomly and converting  
         # the result into str 
-        temp = str(random.randint(0, 1)) 
-  
+        # used the secrets library for cryptography strong random numbers
+        temp = str(secrets.randbelow(1))
+        
         # Concatenatin the random 0, 1 
         # to the final result 
         keyp += temp 
